@@ -1,0 +1,7 @@
+apply plugin: 'org.springframework.boot'
+
+bootJar {
+    jar.enabled = true
+    mainClass = 'com.member.MemberApiApplication'
+}
+
