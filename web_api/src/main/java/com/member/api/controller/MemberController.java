@@ -46,7 +46,7 @@ public class MemberController {
     }
 
     @PutMapping
-    @Operation(summary = "멤버 비밀번호 수정")
+    @Operation(summary = "멤버 정보 수정")
     public ResponseEntity<MemberResponseDto> modifyPassword(@Validated @RequestBody ModifyMemberRequestDto dto){
         Member member = Member.builder()
                 .email(dto.getEmail())

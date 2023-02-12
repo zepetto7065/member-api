@@ -26,15 +26,19 @@ class MemberTest {
     @Test
     @DisplayName("전화번호 인증이 안되고 패스워드 수정 적용")
     void not_check_phonenumber() {
-        String modifiedPassword = "modifiedPassword";
         Member member = Member.builder()
                 .email("test@gmail.com")
                 .password("originPassword")
+                .build();
+
+        Member target = Member.builder()
+                .email("test@gmail.com")
+                .password("modifiedPassword")
                 .checkedPhoneNumber(false)
                 .build();
 
         assertThrows(MemberException.class, ()->{
-            member.applyPassword(modifiedPassword);
+            member.apply(target);
         });
     }
 }

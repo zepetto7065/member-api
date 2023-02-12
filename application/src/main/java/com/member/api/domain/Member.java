@@ -41,10 +41,9 @@ public class Member extends BaseTimeEntity{
         return Member.of(this);
     }
 
-    public Member applyPassword(String modifiedPassword) {
-        if(!checkedPhoneNumber) throw new MemberException("전화번호 인증이 되지 않았습니다.");
-        this.password = modifiedPassword;
-        return Member.of(this);
+    public Member apply(Member target) {
+        if(!target.isCheckedPhoneNumber()) throw new MemberException("전화번호 인증이 되지 않았습니다.");
+        return Member.of(target);
     }
 
     public Member applyToken(String token){

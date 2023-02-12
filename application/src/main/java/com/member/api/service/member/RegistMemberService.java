@@ -23,7 +23,7 @@ class RegistMemberService implements RegistMemberUseCase {
     @Override
     public Member modifyPassword(Member target) {
         Member member = memberRepository.findByEmail(target.getEmail()).orElseThrow(() -> new MemberException("존재하지 않는 email 입니다."));
-        member.applyPassword(target.getPassword());
+        member.apply(target);
         return memberRepository.save(member);
     }
 

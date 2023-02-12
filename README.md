@@ -41,12 +41,15 @@
 
 <hr>
 
-### dependency
+### module dependency
 ![](http://www.plantuml.com/plantuml/png/ROz13i8W44Ntd68kq2kOtiJymjGGMvWCqx0mtbr8YL7ZYWVpU8Iv6DIEVNC2VyUDoMTbUZXgi4jEd8n2tX4JeL1mJ_Ss4I36-YDNNgwGsEtQrgzPJAkYc1xU3kMknBLy9fUShSqXVwEoHG-BEPtnVh62fkb2OS3vvE3UTlrWA6q_QEOKsfzV)
 - web_application : web api 관련 의존성 취합 및 bootJar 빌드 모듈
 - web_api : spring web controller 등 사용자 요청 처리
 - infrastructure : 데이터 저장소 처리
 - domain : 핵심 비지니스 로직
+
+### request process flow
+![](http://www.plantuml.com/plantuml/png/ROz1JiGm34NtFeNL5IpA2KRPp0sGE83hUaOM9OuSPu60kvCKa0RAphB_-te6uZ37LiMHAZQ0GlnCLy69IjcKATJoX6-0wC91-Rhrszbok6sR-3GmOlYu8LTx8Jr2nJpkDD_lI54ydJI7-8LOKleTVQfofYfxil4_DTRYkyV-zDoAQBuurV36qLmEGezIh6gOl-vLwWDUAMYXAhWkOxak00tdD7uaneVtrDMXsyzp6ch5VYRrhwkDQUmw-Wa0)
 
 ### 참고
 - https://engineering.linecorp.com/ko/blog/port-and-adapter-architecture/

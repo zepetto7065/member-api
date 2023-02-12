@@ -19,5 +19,33 @@ wa --> ifs
 
 wapi --> d
 ifs --> d
+@enduml
+
+@startuml
+
+actor user as u
+
+package "application" {
+  rectangle "Controller" as ac
+}
+
+package "domain" {
+  rectangle "port(in)" as pi <<interface>>
+  rectangle "UseCase" as uc
+  rectangle "port(out)" as po <<interface>>
+}
+
+package "infrastructure" {
+  rectangle "Repository" as ir
+}
+
+database db as db
+
+u -> ac
+ac .|> pi
+pi --> uc
+po --> uc
+ir .|> po
+ir --> db
 
 @enduml
