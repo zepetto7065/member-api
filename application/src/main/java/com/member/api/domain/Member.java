@@ -22,12 +22,16 @@ public class Member extends BaseTimeEntity{
     private String password;
     private String name;
     private String phoneNumber;
-
     @Transient
-    public boolean isCheckedPhoneNumber;
-
+    private boolean checkedPhoneNumber;
+    @Transient
+    private String token;
     private static Member of(Member member){
-        return new Member(member.getMemberId(), member.email, member.nickname, member.password, member.name, member.phoneNumber, true);
+        return new Member(member.getMemberId(), member.getEmail(), member.getNickname(), member.getPassword(), member.getName(), member.getPhoneNumber(), true, null);
+    }
+
+    private static Member ofAthenticate(Member member){
+        return new Member(member.getMemberId(), member.getEmail(), member.getNickname(), member.getPassword(), member.getName(), member.getPhoneNumber(), true, member.getToken());
     }
 
     public Member checkPassword(String targetPassword) {
@@ -38,8 +42,13 @@ public class Member extends BaseTimeEntity{
     }
 
     public Member applyPassword(String modifiedPassword) {
-        if(!isCheckedPhoneNumber) throw new MemberException("전화번호 인증이 되지 않았습니다.");
+        if(!checkedPhoneNumber) throw new MemberException("전화번호 인증이 되지 않았습니다.");
         this.password = modifiedPassword;
         return Member.of(this);
+    }
+
+    public Member applyToken(String token){
+        this.token = token;
+        return Member.ofAthenticate(this);
     }
 }

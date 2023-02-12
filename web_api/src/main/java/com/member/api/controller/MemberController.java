@@ -40,7 +40,7 @@ public class MemberController {
                 .name(dto.getName())
                 .password(DigestUtils.sha256Hex(dto.getPassword()))
                 .phoneNumber(dto.getPhoneNumber())
-                .isCheckedPhoneNumber(dto.isCheckedPhoneNumber())
+                .checkedPhoneNumber(dto.isCheckedPhoneNumber())
                 .build();
         return ResponseEntity.ok(MemberDtoConverter.INSTANCE.map(registMemberUseCase.regist(member)));
     }
@@ -51,7 +51,7 @@ public class MemberController {
         Member member = Member.builder()
                 .email(dto.getEmail())
                 .password(DigestUtils.sha256Hex(dto.getPassword()))
-                .isCheckedPhoneNumber(dto.isCheckedPhoneNumber())
+                .checkedPhoneNumber(dto.isCheckedPhoneNumber())
                 .build();
         return ResponseEntity.ok(MemberDtoConverter.INSTANCE.map(registMemberUseCase.modifyPassword(member)));
     }

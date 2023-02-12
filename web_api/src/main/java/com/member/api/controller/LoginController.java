@@ -1,8 +1,10 @@
 package com.member.api.controller;
 
+import com.member.api.converter.LoginDtoConverter;
 import com.member.api.converter.MemberDtoConverter;
 import com.member.api.domain.Member;
 import com.member.api.payload.LoginRequestDto;
+import com.member.api.payload.LoginResponseDto;
 import com.member.api.payload.MemberResponseDto;
 import com.member.api.port.in.LoginUseCase;
 import io.swagger.v3.oas.annotations.Operation;
@@ -23,12 +25,12 @@ public class LoginController {
 
     @PostMapping
     @Operation(summary = "로그인")
-    public ResponseEntity<MemberResponseDto> login(@Validated @RequestBody LoginRequestDto dto){
+    public ResponseEntity<LoginResponseDto> login(@Validated @RequestBody LoginRequestDto dto){
         Member member = Member.builder()
                 .email(dto.getEmail())
                 .phoneNumber(dto.getPhoneNumber())
                 .password(DigestUtils.sha256Hex(dto.getPassword()))
                 .build();
-        return ResponseEntity.ok(MemberDtoConverter.INSTANCE.map(loginUseCase.login(member)));
+        return ResponseEntity.ok(LoginDtoConverter.INSTANCE.map(loginUseCase.login(member)));
     }
 }

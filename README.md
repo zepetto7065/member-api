@@ -8,10 +8,24 @@
 
 <hr>
 
+### 구현 범위 & api 설명
+- 회원가입 
+  - /api/v1/members (POST)
+- 로그인
+  - /api/v1/login (POST)
+  - 로그인 가능시, jwt 토큰 발행
+- 내 정보 보기
+  - /api/v1/members/{memberId} (GET)
+- 비밀번호 재설정
+  - /api/v1/members (PUT)
+
+<hr>
+
 ### 사용기술
 - Multi Gradle Module
 - Spring Data JPA
 - Springdoc-openapi
+- JWT
 
 ### 실행
 - local의 경우, h2 인메모리 db 를 사용하였습니다. local 실행시 , h2 구동 후 실행하여야합니다.

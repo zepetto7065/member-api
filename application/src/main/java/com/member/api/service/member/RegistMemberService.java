@@ -16,7 +16,7 @@ class RegistMemberService implements RegistMemberUseCase {
     @Override
     public Member regist(Member member) {
         if(memberRepository.findByEmail(member.getEmail()).isPresent()) throw new MemberException("이미 존재하는 email 입니다.");
-        if(!member.isCheckedPhoneNumber) throw new MemberException("전화번호 인증이 되지 않았습니다.");
+        if(!member.isCheckedPhoneNumber()) throw new MemberException("전화번호 인증이 되지 않았습니다.");
         return memberRepository.save(member);
     }
 

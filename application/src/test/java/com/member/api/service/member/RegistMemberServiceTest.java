@@ -51,7 +51,7 @@ class RegistMemberServiceTest {
         Member member = Member.builder()
                 .email("test@gmail.com")
                 .password("test1234")
-                .isCheckedPhoneNumber(false)
+                .checkedPhoneNumber(false)
                 .build();
         given(memberRepository.findByEmail(member.getEmail())).willReturn(Optional.empty());
 

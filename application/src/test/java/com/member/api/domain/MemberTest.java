@@ -2,8 +2,6 @@ package com.member.api.domain;
 
 import com.member.api.service.exception.LoginException;
 import com.member.api.service.exception.MemberException;
-import org.assertj.core.api.Assertions;
-import org.hibernate.validator.internal.util.privilegedactions.GetResolvedMemberMethods;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +30,7 @@ class MemberTest {
         Member member = Member.builder()
                 .email("test@gmail.com")
                 .password("originPassword")
-                .isCheckedPhoneNumber(false)
+                .checkedPhoneNumber(false)
                 .build();
 
         assertThrows(MemberException.class, ()->{
