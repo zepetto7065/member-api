@@ -3,4 +3,5 @@ rootProject.name = 'member-api'
 include 'application'
 include 'infrastructure'
 include 'web_api'
+include 'web_application'
 

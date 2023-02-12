@@ -39,11 +39,5 @@ subprojects {
 
 }
 
-project(':web_api') {
-    dependencies {
-        implementation project(':application')
-        implementation('org.springdoc:springdoc-openapi-ui:1.6.13')
-    }
-}
 
 

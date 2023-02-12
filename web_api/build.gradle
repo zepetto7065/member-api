@@ -1,7 +1,7 @@
-apply plugin: 'org.springframework.boot'
 
-bootJar {
-    jar.enabled = true
-    mainClass = 'com.member.MemberApiApplication'
+dependencies {
+    implementation project(':application')
+    implementation('org.springdoc:springdoc-openapi-ui:1.6.13')
+    implementation("org.apache.httpcomponents:httpclient")
+    implementation("org.springframework:spring-tx")
 }
-

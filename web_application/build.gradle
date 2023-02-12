@@ -1,0 +1,10 @@
+
+bootJar {
+    mainClass = 'com.member.api.MemberApiApplication'
+}
+
+dependencies {
+    implementation project(':application')
+    implementation project(':infrastructure')
+    implementation project(':web_api')
+}

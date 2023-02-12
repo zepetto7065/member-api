@@ -1,0 +1,23 @@
+@startuml
+
+package core {
+  component domain as d
+}
+
+package adapter {
+  component web_api as wapi
+  component infrastructure as ifs
+}
+
+package bootstrap {
+  component web_application as wa
+}
+
+wa --> d
+wa --> wapi
+wa --> ifs
+
+wapi --> d
+ifs --> d
+
+@enduml
